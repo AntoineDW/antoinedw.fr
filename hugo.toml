@@ -14,21 +14,13 @@ defaultContentLanguageInSubdir = true
     contentDir = "content/fr"
     [languages.fr.menu]
       [[languages.fr.menu.main]]
-        name = "À propos"
-        pageRef = "/about"
+        name = "Expériences"
+        pageRef = "/experience"
         weight = 1
       [[languages.fr.menu.main]]
-        name = "Expérience"
-        pageRef = "/experience"
-        weight = 2
-      [[languages.fr.menu.main]]
         name = "Blog"
-        pageRef = "/blogs" # Assumes a section named 'blogs'
-        weight = 3
-      [[languages.fr.menu.main]]
-        name = "Contact"
-        pageRef = "/contact"
-        weight = 4
+        pageRef = "/blog"
+        weight = 2
 
   [languages.en]
     languageName = "English"

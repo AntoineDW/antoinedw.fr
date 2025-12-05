@@ -1,0 +1,36 @@
+[[experience]]
+  role = "Développeur Full Stack"
+  company = "ADEO Services"
+  company_link = "https://www.adeo.com/"
+  period = "2022 - 2024"
+  country = "Ronchin, France"
+  responsibilities = [
+    "Maquettage, design, développement, mise en production, administration et maintenance d'applications web sur-mesure.",
+    "Développement et maintenance d'une nouvelle architecture robuste, asynchrone et scalable de gestion de commandes."
+  ]
+  technologies = ["Vue.js", "Python", "Figma", "Google Cloud"]
+
+[[experience]]
+  role = "Développeur Full Stack"
+  company = "Auchan Retail France"
+  company_link = "https://www.auchan-retail.com/"
+  period = "2020 - 2021"
+  country = "Villeneuve-d'Ascq, France"
+  responsibilities = [
+    "Développement, mise en production, et maintenance d'applications web sur-mesure."
+  ]
+  technologies = ["Vue.js", "Node.js", "Google Cloud"]
+
+[[experience]]
+  role = "Développeur Full Stack"
+  company = "ADEO Services"
+  company_link = "https://www.adeo.com/"
+  period = "2018 - 2021"
+  country = "Ronchin, France"
+  responsibilities = [
+    "Maquettage, design, développement, mise en production, administration et maintenance d'applications web sur-mesure.",
+    "Administration de la plateforme Power BI.",
+    "Développement de tableaux de bord interactifs Power BI.",
+    "Organisation et animation de formations Power BI."
+  ]
+  technologies = ["Vue.js", "Python", "Figma", "Google Cloud", "Power BI"]
