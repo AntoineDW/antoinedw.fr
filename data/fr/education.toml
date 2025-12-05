@@ -1,0 +1,15 @@
+[[education]]
+  degree = "BTS SNIR"
+  school = "Lycée Gustave Eiffel"
+  school_link = "https://lycee-gustave-eiffel.fr/"
+  period = "2018"
+  country = "Armentières, France"
+  description = "Brevet de Technicien Supérieur : Systèmes Numériques Informatique et Réseaux."
+
+[[education]]
+  degree = "BAC Scientifique"
+  school = "Lycée Gustave Eiffel"
+  school_link = "https://lycee-gustave-eiffel.fr/"
+  period = "2016"
+  country = "Armentières, France"
+  description = "Option Science de l'Ingénieur."
