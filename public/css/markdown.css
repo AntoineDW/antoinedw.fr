@@ -1,0 +1,139 @@
+/* ----------- Titres ----------- */
+
+.single-post h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 1.5rem 0 1rem;
+}
+
+.single-post h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 1.3rem 0 0.9rem;
+}
+
+.single-post h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 1.1rem 0 0.8rem;
+}
+
+.single-post h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 1rem 0 0.7rem;
+}
+
+.single-post h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0.9rem 0 0.6rem;
+}
+
+.single-post h6 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0.8rem 0 0.5rem;
+}
+
+/* ----------- Paragraphes ----------- */
+
+.single-post p {
+    margin: 0 0 1rem;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* ----------- Liens ----------- */
+
+.single-post a {
+    text-decoration: underline;
+}
+
+.single-post a:hover {
+    text-decoration: underline;
+}
+
+/* ----------- Listes ----------- */
+
+.single-post ul, ol {
+    margin: 0 0 1rem 1.5rem;
+    padding: 0;
+}
+
+.single-post ul {
+    list-style-type: disc;
+}
+
+.single-post ol {
+    list-style-type: decimal;
+}
+
+.single-post li {
+    margin: 0.4rem 0;
+}
+
+/* ----------- Code inline ----------- */
+
+.single-post code {
+    font-family: monospace;
+}
+
+/* ----------- Blocs de code ----------- */
+
+.single-post pre {
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-family: monospace;
+    font-size: 0.95rem;
+    margin: 0 0 1rem;
+}
+
+.single-post pre code {
+    background: transparent;
+    padding: 0;
+}
+
+/* ----------- Blockquotes ----------- */
+
+.single-post blockquote {
+    border-left: 4px solid #777;
+    margin: 0 0 1rem;
+    padding-left: 1rem;
+}
+
+/* ----------- Tables ----------- */
+
+.single-post table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 1rem;
+}
+
+.single-post th, td {
+    border: 1px solid #777;
+    padding: 0.6rem;
+}
+
+.single-post th {
+    font-weight: 600;
+    text-align: left;
+}
+
+/* ----------- Images ----------- */
+
+.single-post img {
+    max-width: 100%;
+    height: auto;
+    margin: 1rem 0;
+    border-radius: 6px;
+}
+
+/* ----------- Lignes horizontales ----------- */
+
+.single-post hr {
+    border: none;
+    border-top: 1px solid #333;
+    margin: 2rem 0;
+}
