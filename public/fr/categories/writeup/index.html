@@ -3,7 +3,7 @@
     <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Write-up : Pickle Rick sur TryHackMe - antoinedw.fr</title>
+        <title>Writeup - antoinedw.fr</title>
         
         
         <link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1313/favicon_io/apple-touch-icon.png">
@@ -203,10 +203,8 @@
                             
                             
                             
-                                
                             
-                            
-                            <a href="http://localhost:1313/en/blog/mon-premier-article/" 
+                            <a href="http://localhost:1313/fr/en" 
                                class=" text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300">
                                 English
                             </a>
@@ -253,10 +251,8 @@
                                 
                                 
                                 
-                                    
                                 
-                                
-                                <a href="http://localhost:1313/en/blog/mon-premier-article/" 
+                                <a href="http://localhost:1313/fr/en" 
                                    class=" text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300">
                                     English
                                 </a>
@@ -421,19 +417,22 @@
 </script> 
         <main>
             
-<div class="single-post w-full my-10">
-    <h1 class="text-4xl font-bold mb-4 text-text-primary-light dark:text-text-primary-dark">Write-up : Pickle Rick sur TryHackMe</h1>
-    
-    
-    <div class="prose prose-invert max-w-none">
-        <p><a href="https://tryhackme.com/room/picklerick">Lien vers le CTF sur TryHackMe</a></p>
-<p>Un CTF TryHackMe sur le thème de Rick et Morty ? Ça promet d&rsquo;être fun !
-Il semblerait que Rick s&rsquo;est transformé en cornichon lors de l&rsquo;une de ses expériences et qu&rsquo;il a besoin d&rsquo;aide. Il a besoin de quelqu&rsquo;un pour créer une potion qui lui permettrait de redevenir humain. Je me lance !</p>
-<h2 id="analyse-des-ports-ouverts-sur-le-serveur">Analyse des ports ouverts sur le serveur</h2>
-<p>Première chose que je peux essayer de faire c&rsquo;est d&rsquo;analyser quels sont les ports ouverts sur le serveur. Pour ça, j&rsquo;utilise <code>nmap</code> avec le paramètre <code>-p-</code> pour lui demander de scanner tous les ports de 1 à 65535. J&rsquo;utilise aussi le paramètre <code>-oN [file]</code> pour sauvegarder le résultat du scan dans un fichier au cas où je voudrais le retrouver plus tard.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir nmap
-</span></span><span style="display:flex;"><span>nmap -p- -oN nmap/allports.txt <span style="color:#f92672">[</span>ip<span style="color:#f92672">]</span>
-</span></span></code></pre></div>
+<div class="container mx-auto my-10">
+    <h1 class="text-4xl font-bold mb-8 text-text-primary-light dark:text-text-primary-dark">Blog</h1>
+    <div class="space-y-6">
+        
+        <article class="[&:not(:last-child)]:border-b border-gray-200 dark:border-gray-700 pt-0 pb-6">
+            <h2 class="text-2xl font-semibold mb-2">
+                <a href="/fr/blog/mon-premier-article/" class="text-accent-light dark:text-accent-dark hover:text-text-primary-light dark:hover:text-text-primary-dark">Write up: </a>
+            </h2>
+            
+            <time class="text-sm text-text-secondary-light dark:text-text-secondary-dark">05/12/2025</time>
+            
+            
+            <p class="text-text-secondary-light dark:text-text-secondary-dark">A brief description of your post for SEO and previews.</p>
+            
+        </article>
+        
     </div>
 </div>
 
