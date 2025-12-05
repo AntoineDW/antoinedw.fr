@@ -15,12 +15,17 @@ defaultContentLanguageInSubdir = true
     [languages.fr.menu]
       [[languages.fr.menu.main]]
         name = "Expériences"
-        pageRef = "/experience"
+        url = "/fr/#experience"
         weight = 1
+      [[languages.fr.menu.main]]
+        name = "Formations"
+        url = "/fr/#education"
+        weight = 2
       [[languages.fr.menu.main]]
         name = "Blog"
         pageRef = "/blog"
-        weight = 2
+        url = "/fr/#blog"
+        weight = 3
 
   [languages.en]
     languageName = "English"
@@ -29,19 +34,16 @@ defaultContentLanguageInSubdir = true
     contentDir = "content/en"
     [languages.en.menu]
       [[languages.en.menu.main]]
-        name = "About"
-        pageRef = "/about" # Corresponds to content/en/about.md or content/en/about/_index.md
+        name = "Experience"
+        url = "/en/#experience"
         weight = 1
       [[languages.en.menu.main]]
-        name = "Experience"
-        pageRef = "/experience"
+        name = "Education"
+        url = "/en/#education"
         weight = 2
       [[languages.en.menu.main]]
         name = "Blog"
-        pageRef = "/blogs" # Assumes a section named 'blogs'
+        pageRef = "/blog"
+        url = "/en/#blog"
         weight = 3
-      [[languages.en.menu.main]]
-        name = "Contact"
-        pageRef = "/contact"
-        weight = 4
 
