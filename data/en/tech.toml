@@ -1,0 +1,20 @@
+row1 = [
+  { icon = "devicon-python-plain", name = "Python" },
+  { icon = "devicon-bash-plain", name = "Bash" },
+  { icon = "devicon-powershell-plain", name = "Powershell" },
+  { icon = "devicon-azuresqldatabase-plain", name = "SQL" },
+  { icon = "devicon-git-plain", name = "Git" },
+  { icon = "devicon-linux-plain", name = "Linux" },
+  { icon = "devicon-windows8-plain", name = "Windows" }
+]
+
+row2 = [
+  { icon = "devicon-html5-plain", name = "HTML5" },
+  { icon = "devicon-css3-plain", name = "CSS3" },
+  { icon = "devicon-tailwindcss-plain", name = "TailwindCSS" },
+  { icon = "devicon-javascript-plain", name = "JavaScript" },
+  { icon = "devicon-typescript-plain", name = "TypeScript" },
+  { icon = "devicon-vuejs-plain", name = "Vue.js" },
+  { icon = "devicon-php-plain", name = "PHP" },
+  { icon = "devicon-laravel-plain", name = "Laravel" }
+]
