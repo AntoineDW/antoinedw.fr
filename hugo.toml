@@ -4,7 +4,7 @@ title = "antoinedw.fr"
 theme = "hugo-noir"
 
 defaultContentLanguage = "fr"
-defaultContentLanguageInSubdir = true # Creates URLs like /en/blog/
+defaultContentLanguageInSubdir = true
 
 [languages]
   [languages.fr]
@@ -54,15 +54,6 @@ defaultContentLanguageInSubdir = true # Creates URLs like /en/blog/
         weight = 4
 
 [params]
-  name = "Antoine De Wilde"
-  location = "Lille, France"
-  profile_image = "/images/profile.jpg"
-  github = "https://github.com/AntoineDW"
-  github_username = "AntoineDW"
-  email = "contact@antoinedw.fr"
-  linkedin = "https://www.linkedin.com/in/antoine-de-wilde-120632323/"
-  linkedin_username = "antoine-de-wilde-120632323"
-
   [params.tech]
     row1 = [
       { icon = "devicon-python-plain", name = "Python" },
