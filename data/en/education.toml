@@ -1,0 +1,15 @@
+[[education]]
+  degree = "BTS SNIR"
+  school = "Lycée Gustave Eiffel"
+  school_link = "https://lycee-gustave-eiffel.fr/"
+  period = "2018"
+  country = "Armentières, France"
+  description = "Two years technical degree : Digital Systems, Computer Science, and Networks."
+
+[[education]]
+  degree = "BAC Scientific"
+  school = "Lycée Gustave Eiffel"
+  school_link = "https://lycee-gustave-eiffel.fr/"
+  period = "2016"
+  country = "Armentières, France"
+  description = "High School Diploma equivalent. Engineer Science option."
