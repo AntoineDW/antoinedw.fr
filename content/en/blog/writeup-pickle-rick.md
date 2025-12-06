@@ -1,5 +1,5 @@
 ---
-title: "Write-up: Pickle Rick on TryHackMe"
+title: "Write-up: Pickle Rick CTF on TryHackMe"
 date: 2025-12-05
 draft: false
 categories: ["writeups", "tryhackme"]
