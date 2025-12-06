@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on antoinedw.fr</title>
-    <link>http://localhost:1313/fr/categories/</link>
+    <link>https://antoinedw.fr/fr/categories/</link>
     <description>Recent content in Categories on antoinedw.fr</description>
     <generator>Hugo</generator>
     <language>fr</language>
     <lastBuildDate>Fri, 05 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/fr/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://antoinedw.fr/fr/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tryhackme</title>
-      <link>http://localhost:1313/fr/categories/tryhackme/</link>
+      <link>https://antoinedw.fr/fr/categories/tryhackme/</link>
       <pubDate>Fri, 05 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/fr/categories/tryhackme/</guid>
+      <guid>https://antoinedw.fr/fr/categories/tryhackme/</guid>
       <description></description>
     </item>
     <item>
       <title>Writeups</title>
-      <link>http://localhost:1313/fr/categories/writeups/</link>
+      <link>https://antoinedw.fr/fr/categories/writeups/</link>
       <pubDate>Fri, 05 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/fr/categories/writeups/</guid>
+      <guid>https://antoinedw.fr/fr/categories/writeups/</guid>
       <description></description>
     </item>
   </channel>

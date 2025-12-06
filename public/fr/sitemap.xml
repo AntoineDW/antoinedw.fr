@@ -2,54 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/fr/</loc>
+    <loc>https://antoinedw.fr/fr/</loc>
     <lastmod>2025-12-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/en/"
+                href="https://antoinedw.fr/en/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="http://localhost:1313/fr/"
+                href="https://antoinedw.fr/fr/"
                 />
   </url><url>
-    <loc>http://localhost:1313/fr/blog/</loc>
+    <loc>https://antoinedw.fr/fr/blog/</loc>
     <lastmod>2025-12-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/fr/categories/</loc>
+    <loc>https://antoinedw.fr/fr/categories/</loc>
     <lastmod>2025-12-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/en/categories/"
+                href="https://antoinedw.fr/en/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="http://localhost:1313/fr/categories/"
+                href="https://antoinedw.fr/fr/categories/"
                 />
   </url><url>
-    <loc>http://localhost:1313/fr/categories/tryhackme/</loc>
+    <loc>https://antoinedw.fr/fr/categories/tryhackme/</loc>
     <lastmod>2025-12-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/fr/blog/writeup-pickle-rick/</loc>
+    <loc>https://antoinedw.fr/fr/blog/writeup-pickle-rick/</loc>
     <lastmod>2025-12-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/fr/categories/writeups/</loc>
+    <loc>https://antoinedw.fr/fr/categories/writeups/</loc>
     <lastmod>2025-12-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/fr/tags/</loc>
+    <loc>https://antoinedw.fr/fr/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/en/tags/"
+                href="https://antoinedw.fr/en/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="http://localhost:1313/fr/tags/"
+                href="https://antoinedw.fr/fr/tags/"
                 />
   </url>
 </urlset>
