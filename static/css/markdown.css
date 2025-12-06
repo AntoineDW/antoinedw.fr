@@ -9,7 +9,7 @@
 .single-post h2 {
     font-size: 1.8rem;
     font-weight: 700;
-    margin: 1.3rem 0 0.9rem;
+    margin: 4rem 0 0.9rem;
 }
 
 .single-post h3 {
@@ -77,9 +77,13 @@
 
 .single-post code {
     font-family: monospace;
-    background: #333;
+    background: #ddd;
     border-radius: 4px;
     padding: 2px 6px;
+}
+
+.dark .single-post code {
+    background: #333;
 }
 
 /* ----------- Blocs de code ----------- */

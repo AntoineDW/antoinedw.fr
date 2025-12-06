@@ -58,7 +58,11 @@ Les pages `portal.php` et `denied.php` me redirigent toutes les deux vers `login
 
 Je vais analyser une fois de plus le code source de la page `login.php` pour essayer d'y trouver des informations... Rien d'interessant. J'ai tenté une connexion avec le nom d'utilisateur trouvé précédemment : `R1ckRul3s` et `Wubbalubbadubdub` comme mot de passe... Et ça a fonctionné ! Je suis connecté à la page `portal.php`.
 
-Une fois de plus je vais analyser le code source de la page avant de commencer quoi que ce soit. J'y ai trouvé une information qui semble être encodée en `base64` : `Vm1wR1UxTnRWa2RUV0d4VFlrZFNjRlV3V2t0alJsWnlWbXQwVkUxV1duaFZNakExVkcxS1NHVkliRmhoTVhCb1ZsWmFWMVpWTVVWaGVqQT0==`.
+Une fois de plus je vais analyser le code source de la page avant de commencer quoi que ce soit. J'y ai trouvé une information qui semble être encodée en `base64`.
+
+```bash
+Vm1wR1UxTnRWa2RUV0d4VFlrZFNjRlV3V2t0alJsWnlWbXQwVkUxV1duaFZNakExVkcxS1NHVkliRmhoTVhCb1ZsWmFWMVpWTVVWaGVqQT0==
+```
 
 Après avoir bidouillé avec [CyberChef](https://gchq.github.io), j'ai découvert qu'il s'agissait d'une phrase encodée 7 fois d'affilée en `base64` qui, une fois décodée, donne le résultat suivant : `rabbit hole`. Je me suis fait avoir, encore une blague de Rick pour me faire perdre du temps !
 
