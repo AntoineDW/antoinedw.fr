@@ -94,7 +94,7 @@ Bingo ! Je suis connecté à la machine.
 
 ## Stabilisation du shell et second ingrédient
 
-Comme je sais que Python 3 est installé, je vais prendre le temps de stabiliser le shell pour nottament avoir accès à l'autocomplétion de mes commandes.
+Comme je sais que Python 3 est installé, je vais prendre le temps de stabiliser le shell pour notamment avoir accès à l'autocomplétion de mes commandes.
 
 ```bash
 python3 -c 'import pty;pty.spawn("/bin/bash")'
