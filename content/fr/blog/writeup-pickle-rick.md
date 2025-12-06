@@ -48,7 +48,7 @@ Rien de très intéréssant pour l'instant. Je vais tenter de relancer `gobuster
 gobuster dir -u http://[ip] -w /usr/share/wordlists/dirb/common.txt -x php
 ```
 
-Bingo, on trouve des pages très interessantes : `login.php`, `denied.php` et `portal.php`.
+Bingo ! J'ai trouvé des pages très interessantes : `login.php`, `denied.php` et `portal.php`.
 
 ![Résultat de gobuster en mode php](/img/writeup-pickle-rick/gobuster-php.png "Résultat de gobuster en mode php")
 
@@ -68,13 +68,13 @@ Après avoir bidouillé avec [CyberChef](https://gchq.github.io/CyberChef), j'ai
 
 De retour sur la page `portal.php`, je me rend compte qu'il s'agit d'une interface de commande qui permet d'intéragir avec le serveur. En listant les fichiers présents dans le serveur avec `ls` je vois qu'il existe un fichier `Sup3rS3cretPickl3Ingred.txt`.
 
-![Liste des fichiers présents sur le serveur](/img/writeup-pickle-rick/ls.png)
+![Liste des fichiers présents sur le serveur](/img/writeup-pickle-rick/ls.png "Liste des fichiers présents sur le serveur")
 
 Lorsque je tente un `cat Sup3rS3cretPickl3Ingred.txt` j'obtiens une erreur. Il semblerait que Rick ai désactivé certaines commandes pour empêcher les utilisateurs d'avoir un contrôle entier sur le serveur. Mais bon, comme il y a un serveur web qui tourne sur la machine, il me suffit d'ouvrir le fichier `/Sup3rS3cretPickl3Ingred.txt` dans Firefox pour découvrir son contenu : `mr. meeseek hair`. Premier ingrédient obtenu ! Il m'en reste deux à trouver.
 
 ## Accès au serveur via un reverse shell
 
-Comme j'ai la possiblité d'éxécuter des commande sur le serveur, j'aimerai voir s'il existe un moyen d'y éxécuter un reverse shell pour mettre un premier vrai pas dans le serveur.
+Comme j'ai la possiblité d'éxécuter des commande sur le serveur, j'aimerai voir s'il existe un moyen d'y éxécuter un reverse shell pour avoir un réel accès.
 
 En énumerant mes possiblités, j'ai éxécuté la commande `which python3` pour voir si Python 3 était installé sur le serveur, et c'est le cas ! La voilà ma porte d'entrée.
 
