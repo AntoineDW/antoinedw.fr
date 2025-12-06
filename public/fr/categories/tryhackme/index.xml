@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Writeups on antoinedw.fr</title>
-    <link>http://localhost:1313/fr/categories/writeups/</link>
-    <description>Recent content in Writeups on antoinedw.fr</description>
+    <title>Tryhackme on antoinedw.fr</title>
+    <link>http://localhost:1313/fr/categories/tryhackme/</link>
+    <description>Recent content in Tryhackme on antoinedw.fr</description>
     <generator>Hugo</generator>
     <language>fr</language>
     <lastBuildDate>Fri, 05 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/fr/categories/writeups/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/fr/categories/tryhackme/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Write-up : Pickle Rick sur TryHackMe</title>
       <link>http://localhost:1313/fr/blog/writeup-pickle-rick/</link>
