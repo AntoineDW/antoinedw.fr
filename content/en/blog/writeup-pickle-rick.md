@@ -30,7 +30,7 @@ I will take a look at the web server first by opening the IP address on Firefox.
 
 Looks like a classic website. First thing I can do is to analyze the source code of the home page. I found in it a comment left by Rick that allow me to have a first username : `R1ckRul3s`. I will maybe use it later to log into the server using the SSH connection.
 
-There is no more informations left in the source code, so I will start `gobuster` to try to find other pages on hidden the web server.
+There is no more informations left in the source code, so I will start `gobuster` to try to find other hidden pages on the web server.
 
 ```bash
 gobuster dir -u http://[ip] -w /usr/share/wordlists/dirb/common.txt
@@ -74,7 +74,7 @@ When I try to display the file using `cat Sup3rS3cretPickl3Ingred.txt`, I get an
 
 ## Server access using a reverse shell
 
-Because I have to possiblity to execute commands on the server, I would like to see if there's a way to execute a reverse shell to have a real access.
+Because I have the possiblity to execute commands on the server, I would like to see if there's a way to execute a reverse shell to have a real access.
 
 When enumerating my possibilities, I executed the command `which python3` to see if Python 3 was installed on the server, and yes it is ! That's my way in.
 
